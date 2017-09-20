@@ -3,18 +3,26 @@
 $modversion['dirname'] = basename(__DIR__);
 
 $modversion['name']                = _MI_SURNAMES_NAME;
-$modversion['version']             = '1.1.0';
+$modversion['version']             = '1.2.0';
 $modversion['description']         = _MI_SURNAMES_DESC;
-$modversion['credits']             = "Richard Griffith";
+$modversion['credits']             = 'Richard Griffith';
 $modversion['min_php']             = '5.3.7';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['system_menu']         = 1;
 $modversion['help']                = 'page=help';
-$modversion['license']             = "GNU GPL v2 or higher";
+$modversion['license']             = 'GNU GPL v2 or higher';
 $modversion['license_url']         = XOOPS_URL . '/modules/' . $modversion['dirname'] . '/docs/license.txt';
-//$modversion['license_url']         = substr($modversion['license_url'], strpos($modversion['license_url'], '//') + 2);
 $modversion['official']            = 0;
-$modversion['image']               = "assets/images/icon.png";
+$modversion['image']               = 'assets/images/icon.png';
+
+// About stuff
+$modversion['module_status']       = 'Final';
+$modversion['release_date']        = '09/20/2017';
+
+$modversion['developer_lead']      = 'geekwright';
+$modversion['module_website_url']  = 'https://xoops.org';
+$modversion['module_website_name'] = 'XOOPS';
+$modversion['developer_email']     = 'richard@geekwright.com';
 
 // Admin things
 $modversion['hasAdmin']   = 1;
@@ -24,11 +32,15 @@ $modversion['adminmenu']  = 'admin/menu.php';
 // Menu
 $modversion['hasMain'] = 1;
 
+// Install/Update
+$modversion['onUpdate'] = 'include/onupdate.php';
+
 // Search
 $modversion['hasSearch'] = 1;
-$modversion['search']['file'] = "include/search.inc.php";
-$modversion['search']['func'] = "surnames_search";
-
+$modversion['search'] = array(
+    'file' => 'include/search.inc.php',
+    'func' => 'surnames_search',
+);
 
 // comments
 $modversion['hasComments'] = 1;
@@ -120,8 +132,8 @@ $modversion['config'][4]['formtype'] = 'yesno';
 $modversion['config'][4]['valuetype'] = 'int';
 $modversion['config'][4]['default'] = 0;
 
-$modversion['sqlfile']['mysql'] = "sql/mysql.sql";
-$modversion['tables'][0] = "surnames_register";
+$modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
+$modversion['tables'][0] = 'surnames_register';
 
 global $xoopsUser;
 $modHelper  = Xmf\Module\Helper::getHelper($modversion['dirname']);
@@ -130,13 +142,13 @@ $permHelper = new Xmf\Module\Helper\Permission($modversion['dirname']);
 if (is_object($xoopsUser) || $modHelper->getConfig('postanon', false)) {
     $modversion['sub'][] = array(
         'name' => _MI_SURNAMES_MENU_ADD,
-        'url' => "edit.php",
+        'url' => 'edit.php',
     );
 }
 if ($permHelper->checkPermission('surnames_approve', 2)) {
     $modversion['sub'][] = array(
         'name' => _MI_SURNAMES_MENU_REVIEW,
-        'url' => "review.php",
+        'url' => 'review.php',
     );
 }
 

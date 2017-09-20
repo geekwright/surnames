@@ -1,0 +1,40 @@
+surnames_register:
+    options: 'ENGINE=MyISAM DEFAULT CHARSET=utf8'
+    columns:
+        -
+            name: id
+            attributes: ' mediumint(8) unsigned  NOT NULL auto_increment'
+        -
+            name: uid
+            attributes: ' mediumint(8) unsigned  NOT NULL  DEFAULT ''0'' '
+        -
+            name: name
+            attributes: ' varchar(60)  NOT NULL  DEFAULT '''' '
+        -
+            name: email
+            attributes: ' varchar(60)  NOT NULL  DEFAULT '''' '
+        -
+            name: surname
+            attributes: ' varchar(30)  NOT NULL  DEFAULT '''' '
+        -
+            name: notes
+            attributes: ' varchar(120)  NOT NULL  DEFAULT '''' '
+        -
+            name: comment_count
+            attributes: ' smallint(5) unsigned  NOT NULL  DEFAULT ''0'' '
+        -
+            name: approved
+            attributes: ' tinyint(1) unsigned  NOT NULL  DEFAULT ''0'' '
+        -
+            name: changed_ts
+            attributes: ' timestamp  NOT NULL  DEFAULT ''CURRENT_TIMESTAMP'' on update CURRENT_TIMESTAMP'
+    keys:
+        PRIMARY:
+            columns: id
+            unique: true
+        surname:
+            columns: surname
+            unique: false
+        uid:
+            columns: 'uid, surname, name, email'
+            unique: true

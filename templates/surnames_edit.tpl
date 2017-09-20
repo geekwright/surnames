@@ -1,14 +1,14 @@
 <div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$smarty.const._MD_SURNAMES_BC_EDIT}></div>
-<br />
+<br>
 <{if isset($err_message)}>
-<hr />
+<hr>
 <div class="errorMsg"><{$err_message}></div>
-<hr />
+<hr>
 <{/if}>
 <{if isset($message)}>
-<hr />
+<hr>
 <div class="resultMsg"><{$message}></div>
-<hr />
+<hr>
 <{/if}>
 <{if isset($body)}>
 <div><{$body}></div>
@@ -41,6 +41,6 @@
 <{/if}>
 <{include file='db:system_notification_select.tpl'}>
 <{if isset($debug)}>
-<hr />
+<hr>
 <div><{$debug}></div>
 <{/if}>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/print.css" />
 
 </head>
-<body onload='window.print()'; />
+<body onload='window.print();'>
 
 <h1><{$smarty.const._MD_SURNAMES_BC_ROOT}> &gt; <{$smarty.const._MD_SURNAMES_VIEW_SINGLE}></h1>
 

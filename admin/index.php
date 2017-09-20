@@ -12,7 +12,7 @@
 use Xmf\Module\Admin;
 
 /**
- * @copyright       The XOOPS Project http://xoops.org
+ * @copyright       2017 XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author          Richard Griffith <richard@geekwright.com>
  */

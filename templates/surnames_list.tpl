@@ -1,21 +1,21 @@
 <div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$bc_level}></div>
 
-<br />
+<br>
 <{if isset($err_message)}>
 <div class="errorMsg"><{$err_message}></div>
-<hr /><br />
+<hr><br>
 <{/if}>
 <{if isset($message)}>
-<br /><hr />
+<br><hr>
 <div style="font-weight: bold;"><{$message}></div>
-<hr /><br />
+<hr><br>
 <{/if}>
 <div class="item">
 <table width="100%">
 <tr>
 <th><{$smarty.const._MD_SURNAMES_USER}></th>
 <th><{$smarty.const._MD_SURNAMES_SURNAME}></th>
-<th><{$smarty.const._MD_SURNAMES_VIEW_ACTIONS}></td>
+<th><{$smarty.const._MD_SURNAMES_VIEW_ACTIONS}></th>
 <th><{$smarty.const._MD_SURNAMES_NOTES}></th>
 </tr>
 <{section name=i loop=$ids }>
@@ -39,11 +39,11 @@ View
 </table>
 </div>
 <{if isset($pagenav)}>
-<hr />
+<hr>
 <div align="right"><{$pagenav}></div>
 <{/if}>
 <{if isset($plugin_message)}>
-<br />
+<br>
 <div><{$plugin_message}></div>
 <{/if}>
 
@@ -51,6 +51,6 @@ View
 <div><{$body}></div>
 <{/if}>
 <{if isset($debug)}>
-<hr />
+<hr>
 <div><{$debug}></div>
 <{/if}>

@@ -267,7 +267,7 @@ if ($op=='update') {
 
 if ($op=='display') {
     $token=1;
-    $joiner1='<br /><span style="font-weight:normal;">';
+    $joiner1='<br><span style="font-weight:normal;">';
     $joiner2='</span>';
     $form = new XoopsThemeForm('Add New Surname', 'form1', 'edit.php', 'POST', $token);
 

@@ -1,5 +1,5 @@
 <div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$smarty.const._MD_SURNAMES_VIEW_SINGLE}></div>
-<br />
+<br>
 <table>
 <tr><td width="20%"><{$smarty.const._MD_SURNAMES_SURNAME}></td><td><a href="list.php?surname=<{$qsurname}>"><{$surname}></a></td></tr>
 
@@ -70,7 +70,7 @@
 <{/if}>
 
 </table>
-<hr />
+<hr>
 <div style="text-align: center; padding: 3px; margin: 3px;">
   <{$commentsnav}>
   <{$lang_notice}>

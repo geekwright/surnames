@@ -32,7 +32,7 @@
 <{else}>
 Nothing to display
 <{/if}>
-<hr />
+<hr>
 <{if isset($pagenav)}>
 <div align="right"><{$pagenav}></div>
 <{/if}>

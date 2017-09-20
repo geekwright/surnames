@@ -27,7 +27,7 @@ $perm_desc = '';
 
 $form = new XoopsGroupPermForm($title_of_form, $module_id, $perm_name, $perm_desc);
 foreach ($item_list as $item_id => $item_name) {
-	$form->addItem($item_id, $item_name);
+    $form->addItem($item_id, $item_name);
 }
 
 $moduleAdmin->addItemButton(_MI_SURNAMES_MENU_REVIEW, XOOPS_URL.'/modules/surnames/review.php', 'button_ok');

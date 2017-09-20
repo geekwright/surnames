@@ -1,9 +1,8 @@
 <?php
-// $Id: notification.inc.php,v 1.3.2.1 2005/01/06 22:57:45 praedator Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                         <https://xoops.org/>                              //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -24,7 +23,7 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
-if ( !defined('SURNAMES_NOTIFY_ITEMINFO') ) {
+if (!defined('SURNAMES_NOTIFY_ITEMINFO')) {
     define('SURNAMES_NOTIFY_ITEMINFO', 1);
 
     function surnames_notify_iteminfo($category, $item_id)

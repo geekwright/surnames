@@ -1,13 +1,13 @@
 <div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$smarty.const._MD_SURNAMES_LIST_REVIEW}></div>
-<br />
+<br>
 <{if isset($err_message)}>
 <div class="errorMsg"><{$err_message}></div>
-<hr /><br />
+<hr><br>
 <{/if}>
 <{if isset($message)}>
-<br /><hr />
+<br><hr>
 <div class="resultMsg"><{$message}></div>
-<hr /><br />
+<hr><br>
 <{/if}>
 <script LANGUAGE="JavaScript">
 function confirmSubmit()
@@ -19,7 +19,7 @@ return confirm("<{$smarty.const._MD_SURNAMES_ACTIONS_CONFIRM}>");
 <form action="review.php" method="POST" onSubmit="return confirmSubmit();">
 <table width="100%">
 <tr>
-<th>Id</td>
+<th>Id</th>
 <th><{$smarty.const._MD_SURNAMES_USER}></th>
 <th><{$smarty.const._MD_SURNAMES_SURNAME}></th>
 <th><{$smarty.const._MD_SURNAMES_NOTES}></th>
@@ -45,7 +45,7 @@ return confirm("<{$smarty.const._MD_SURNAMES_ACTIONS_CONFIRM}>");
 <input class="btn btn-default" type="submit" value="submit"><input class="btn btn-default" type="reset" value="reset">
 </div>
 <{if isset($pagenav)}>
-<hr />
+<hr>
 <div align="right"><{$pagenav}></div>
 <{/if}>
 <{if isset($body)}>
@@ -53,6 +53,6 @@ return confirm("<{$smarty.const._MD_SURNAMES_ACTIONS_CONFIRM}>");
 <{/if}>
 <{include file='db:system_notification_select.tpl'}>
 <{if isset($debug)}>
-<hr />
+<hr>
 <div><{$debug}></div>
 <{/if}>

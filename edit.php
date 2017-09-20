@@ -163,7 +163,7 @@ if ($myuserid === $userid && $approve_own) {
 if ($myuserid !== $userid && $approve_others) {
     $approved=1;
 }
-\Xmf\Debug::dump($myuserid, $userid, $id);
+
 if ($myuserid !== $userid && !$approve_others && $id == 0) {
     $op='display';
 }

@@ -62,7 +62,7 @@ if (isset($_GET['uid'])) {
 }
 $surname = Request::getString('surname', '', 'get');
 //$surname = stripcslashes($surname);
-\Xmf\Debug::dump($surname, $_GET);
+
 $op='display';
 $bc_level = '';
 

@@ -36,6 +36,7 @@ Nothing to display
 <{if isset($pagenav)}>
 <div align="right"><{$pagenav}></div>
 <{/if}>
+<{include file='db:system_notification_select.tpl'}>
 <{if isset($debug)}>
 <div><{$debug}></div>
 <{/if}>

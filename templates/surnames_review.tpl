@@ -51,6 +51,7 @@ return confirm("<{$smarty.const._MD_SURNAMES_ACTIONS_CONFIRM}>");
 <{if isset($body)}>
 <div><{$body}></div>
 <{/if}>
+<{include file='db:system_notification_select.tpl'}>
 <{if isset($debug)}>
 <hr />
 <div><{$debug}></div>

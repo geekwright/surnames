@@ -47,7 +47,7 @@ $modversion['notification']['category'][1] = array(
     'name'           => 'global',
     'title'          => _MI_SURNAMES_GLOBAL_NOTIFY,
     'description'    => _MI_SURNAMES_GLOBAL_NOTIFY_DSC,
-    'subscribe_from' => array('edit.php', 'view.php'),
+    'subscribe_from' => array('edit.php', 'index.php', 'review.php', 'view.php'),
 );
 
 $modversion['notification']['category'][2] = array(

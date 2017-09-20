@@ -20,8 +20,6 @@ require_once $path . '/mainfile.php';
 require_once $path . '/include/cp_functions.php';
 require_once $path . '/include/cp_header.php';
 
-include dirname(__DIR__) . '/include/common.php';
-
 class_exists('\Xmf\Module\Admin') or die('XMF is required.');
 
 global $xoopsModule;

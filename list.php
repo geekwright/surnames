@@ -7,40 +7,14 @@ use Xmf\Module\Helper;
 require __DIR__ . '/../../mainfile.php';
 $GLOBALS['xoopsOption']['template_main'] = 'surnames_list.tpl';
 include(XOOPS_ROOT_PATH."/header.php");
-// include_once XOOPS_ROOT_PATH."/language/".$xoopsConfig['language']."/calendar.php";
 $moduleHelper = Helper::getHelper('surnames');
-
-$parms = '';
-if (isset($_GET['start'])) {
-    $parms .= 'GET start '.$_GET['start'].' <br />';
-}
-if (isset($_GET['id'])) {
-    $parms .= 'GET id '.$_GET['id'].' <br />';
-}
-if (isset($_GET['surname'])) {
-    $parms .= 'GET surname '.$_GET['surname'].' <br />';
-}
-if (isset($_GET['uid'])) {
-    $parms .= 'GET uid '.$_GET['uid'].' <br />';
-}
-if (isset($_POST['id'])) {
-    $parms .= 'POST id '.$_POST['id'].' <br />';
-}
-if (isset($_POST['surname'])) {
-    $parms .= 'POST surname '.$_POST['surname'].' <br />';
-}
-if (isset($_POST['uid'])) {
-    $parms .= 'POST uid '.$_POST['uid'].' <br />';
-}
-
-// $xoopsTpl->assign('debug', $parms);
 
 function myGetUnameFromId($uid)
 {
     static $memberHandler=false;
 
     if (!is_object($memberHandler)) {
-    	/** @var \XoopsMemberHandler $member_handler */
+        /** @var \XoopsMemberHandler $member_handler */
         $memberHandler = xoops_gethandler('member');
     }
     /** @var \XoopsUser $thisUser */
@@ -57,9 +31,6 @@ $myuid = is_object($xoopsUser) ? $xoopsUser->getVar('uid') : 0;
 
 $start = Request::getInt('start', 0, 'get');
 $userid = Request::getInt('uid', 0, 'get');
-if (isset($_GET['uid'])) {
-    $userid = intval($_GET['uid']);
-}
 $surname = Request::getString('surname', '', 'get');
 //$surname = stripcslashes($surname);
 

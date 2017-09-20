@@ -155,7 +155,7 @@ if ($op=='update') {
         }
     }
     if ($delcnt || $updcnt) {
-        $message = sprintf(_MD_SURNAMES_REVIEW_UPDMSG, intval($updcnt+$delcnt));
+        $message = sprintf(_MD_SURNAMES_REVIEW_UPDMSG, (int)($updcnt+$delcnt));
     }
 
     $op='display';

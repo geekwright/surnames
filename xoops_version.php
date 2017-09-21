@@ -135,23 +135,23 @@ $modversion['config'][4]['default'] = 0;
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'][0] = 'surnames_register';
 
-global $xoopsUser;
-$modHelper  = Xmf\Module\Helper::getHelper($modversion['dirname']);
-$permHelper = new Xmf\Module\Helper\Permission($modversion['dirname']);
+if (is_object($GLOBALS['xoopsModule']) && $GLOBALS['xoopsModule']->getVar('dirname') == $modversion['dirname']) {
+    $modHelper = Xmf\Module\Helper::getHelper($modversion['dirname']);
+    $permHelper = new Xmf\Module\Helper\Permission($modversion['dirname']);
 
-if (is_object($xoopsUser) || $modHelper->getConfig('postanon', false)) {
-    $modversion['sub'][] = array(
-        'name' => _MI_SURNAMES_MENU_ADD,
-        'url' => 'edit.php',
-    );
+    if (is_object($GLOBALS['xoopsUser']) || $modHelper->getConfig('postanon', false)) {
+        $modversion['sub'][] = array(
+            'name' => _MI_SURNAMES_MENU_ADD,
+            'url' => 'edit.php',
+        );
+    }
+    if ($permHelper->checkPermission('surnames_approve', 2)) {
+        $modversion['sub'][] = array(
+            'name' => _MI_SURNAMES_MENU_REVIEW,
+            'url' => 'review.php',
+        );
+    }
 }
-if ($permHelper->checkPermission('surnames_approve', 2)) {
-    $modversion['sub'][] = array(
-        'name' => _MI_SURNAMES_MENU_REVIEW,
-        'url' => 'review.php',
-    );
-}
-
 // Templates
 $modversion['templates'][1]['file'] = 'surnames_index.tpl';
 $modversion['templates'][1]['description'] = 'Module Index';

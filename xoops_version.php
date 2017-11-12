@@ -5,6 +5,7 @@ $modversion['dirname'] = basename(__DIR__);
 $modversion['name']                = _MI_SURNAMES_NAME;
 $modversion['version']             = '1.2.0';
 $modversion['description']         = _MI_SURNAMES_DESC;
+$modversion['author']              = 'geekwright';
 $modversion['credits']             = 'Richard Griffith';
 $modversion['min_php']             = '5.3.7';
 $modversion['min_xoops']           = '2.5.9';

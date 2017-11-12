@@ -44,7 +44,7 @@ function surnames_search($queryarray, $andor, $limit, $offset, $userid)
         $sql .= " AND ((surname LIKE '%$queryarray[0]%' OR notes LIKE '%$queryarray[0]%')";
         for ($i=1; $i<$count; $i++) {
             $sql .= " $andor ";
-            $sql .= "(surname LIKE '%$queryarray[0]%' OR notes LIKE '%$queryarray[0]%')";
+            $sql .= "(surname LIKE '%$queryarray[$i]%' OR notes LIKE '%$queryarray[$i]%')";
         }
         $sql .= ") ";
     }

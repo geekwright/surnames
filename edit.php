@@ -6,7 +6,7 @@ use Xmf\Module\Helper\Permission;
 
 //  ------------------------------------------------------------------------ //
 
-require __DIR__ . '/../../mainfile.php';
+require_once dirname(dirname(__DIR__)) . '/mainfile.php';
 $GLOBALS['xoopsOption']['template_main'] = 'surnames_edit.tpl';
 include XOOPS_ROOT_PATH.'/header.php';
 include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
@@ -84,7 +84,7 @@ if (is_object($xoopsUser)) {
     $myuserid = (int) $xoopsUser->getVar('uid');
 }
 
-$userid = Request::getInt('userid', $myuserid, 'post');
+$userid = Request::getInt('uid', $myuserid, 'post');
 
 $surname = Request::getString('surname', '', 'post');
 $notes = Request::getString('notes', '', 'post');
@@ -112,10 +112,10 @@ if ($id !== 0) {
         $notes=$myrow['notes'];
         $id_approved=$myrow['approved'];
     }
-    if ('POST' == Request::getMethod()) {
+    if ('POST' === Request::getMethod()) {
         $delete_request = Request::getBool('delete_box', false, 'post');
         if (!$delete_request) {
-            $userid = Request::getInt('userid', $userid, 'post');
+            $userid = Request::getInt('uid', $userid, 'post');
             $surname = Request::getString('surname', $surname, 'post');
             $notes = Request::getString('notes', $notes, 'post');
             $anon_name = Request::getString('name', $anon_name, 'post');
@@ -164,7 +164,7 @@ if ($myuserid !== $userid && $approve_others) {
     $approved=1;
 }
 
-if ($myuserid !== $userid && !$approve_others && $id == 0) {
+if ($myuserid !== $userid && !$approve_others && $id === 0) {
     $op='display';
 }
 
@@ -269,12 +269,12 @@ if ($op=='display') {
     $token=1;
     $joiner1='<br><span style="font-weight:normal;">';
     $joiner2='</span>';
-    $form = new XoopsThemeForm('Add New Surname', 'form1', 'edit.php', 'POST', $token);
+    $form = new XoopsThemeForm('Add New Surname', 'surname_form', 'edit.php', 'POST', $token);
 
     if ($approve_others) {
-        // caption, name, include_annon, size (1 for dropdown), multiple
-        $caption = _MD_SURNAMES_USER . $joiner1 . _MD_SURNAMES_USER_DSC . $joiner2;
-        $form->addElement(new XoopsFormSelectUser($caption, 'uid', true, $userid, 1, false));
+        $uidElement = new XoopsFormSelectUser(_MD_SURNAMES_USER, 'uid', true, $userid, 1, false);
+        $uidElement->setDescription(_MD_SURNAMES_USER_DSC);
+        $form->addElement($uidElement);
     }
     if ($user_mode=='reg') {
         $caption = _MD_SURNAMES_USER;
@@ -286,16 +286,22 @@ if ($op=='display') {
         $form->addElement(new XoopsFormHidden('uid', $myuserid));
     }
     if ($user_mode!='reg') {
-        $caption = _MD_SURNAMES_NAME . $joiner1 . _MD_SURNAMES_NAME_DSC . $joiner2;
-        $form->addElement(new XoopsFormText($caption, 'name', 20, 30, htmlspecialchars($anon_name, ENT_QUOTES)));
-        $caption = _MD_SURNAMES_EMAIL . $joiner1 . _MD_SURNAMES_EMAIL_DSC . $joiner2;
-        $form->addElement(new XoopsFormText($caption, 'email', 20, 30, htmlspecialchars($anon_email, ENT_QUOTES)));
+        $nameElement = new XoopsFormText(_MD_SURNAMES_NAME, 'name', 20, 30, htmlspecialchars($anon_name, ENT_QUOTES));
+        $nameElement->setDescription(_MD_SURNAMES_NAME_DSC);
+        $form->addElement($nameElement);
+
+        $emailElement = new XoopsFormText(_MD_SURNAMES_EMAIL, 'email', 20, 30, htmlspecialchars($anon_email, ENT_QUOTES));
+        $emailElement->setDescription(_MD_SURNAMES_EMAIL_DSC);
+        $form->addElement($emailElement);
     }
 
-    $caption = _MD_SURNAMES_SURNAME . $joiner1 . _MD_SURNAMES_SURNAME_DSC . $joiner2;
-    $form->addElement(new XoopsFormText($caption, 'surname', 20, 30, htmlspecialchars($surname, ENT_QUOTES)));
-    $caption = _MD_SURNAMES_NOTES . $joiner1 . _MD_SURNAMES_NOTES_DSC . $joiner2;
-    $form->addElement(new XoopsFormText($caption, 'notes', 40, 120, htmlspecialchars($notes, ENT_QUOTES)));
+    $surnameElement = new XoopsFormText(_MD_SURNAMES_SURNAME, 'surname', 20, 30, htmlspecialchars($surname, ENT_QUOTES));
+    $surnameElement->setDescription(_MD_SURNAMES_SURNAME_DSC);
+    $form->addElement($surnameElement);
+
+    $notesElement = new XoopsFormText(_MD_SURNAMES_NOTES, 'notes', 40, 120, htmlspecialchars($notes, ENT_QUOTES));
+    $notesElement->setDescription(_MD_SURNAMES_NOTES_DSC);
+    $form->addElement($notesElement);
 
     if ($id!=0) {
         $caption = '';
@@ -316,7 +322,7 @@ if ($op=='display') {
     // XoopsFormHidden($name, $value)
 
     //$form->display();
-    $body=$form->render();
+    $form->assign($xoopsTpl);
 }
 
 if ($op!='' && $userid!=0) {

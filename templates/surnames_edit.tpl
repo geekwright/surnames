@@ -10,8 +10,8 @@
 <div class="resultMsg"><{$message}></div>
 <hr>
 <{/if}>
-<{if isset($body)}>
-<div><{$body}></div>
+<{if isset($surname_form)}>
+<div><{$surname_form.rendered}></div>
 <{/if}>
 
 <{if is_array($surnames) && count($surnames) > 0 }>

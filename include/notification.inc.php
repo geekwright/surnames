@@ -28,6 +28,8 @@ if (!defined('SURNAMES_NOTIFY_ITEMINFO')) {
 
     function surnames_notify_iteminfo($category, $item_id)
     {
+        global $xoopsDB;
+
         if ($category=='global') {
             $item['name'] = '?';
             $item['url'] = XOOPS_URL . '/modules/surnames/view.php?id=' . $item_id;
@@ -35,7 +37,12 @@ if (!defined('SURNAMES_NOTIFY_ITEMINFO')) {
         }
 
         if ($category=='surname') {
-            $item['name'] = 'One Surname for a Researcher';
+            $sql = 'SELECT surname FROM ' . $xoopsDB->prefix('surnames_register')
+                . ' WHERE id = ' . (int) $item_id;
+            $result = $xoopsDB->query($sql, 1, 0);
+            $myrow = $xoopsDB->fetchArray($result);
+            $xoopsDB->freeRecordSet($result);
+            $item['name'] = $myrow!==false ? $myrow['surname'] : 'One Surname for a Researcher';
             $item['url'] = XOOPS_URL . '/modules/surnames/view.php?id=' . $item_id;
             return $item;
         }

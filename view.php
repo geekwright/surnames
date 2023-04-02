@@ -12,8 +12,8 @@ if ($op=='print') {
     $xoopsTpl = new XoopsTpl();
 } else {
     $GLOBALS['xoopsOption']['template_main'] = 'surnames_view.tpl';
-    include(XOOPS_ROOT_PATH."/header.php");
 }
+include(XOOPS_ROOT_PATH."/header.php");
 
 $id='0';
 $uid='0';
@@ -40,22 +40,24 @@ if ($result) {
     $uid=$myrow['uid'];
     if ($uid==0) {
         $q_name = $xoopsDB->escape($myrow['name']);
-        $name = htmlSpecialChars($myrow['name']);
+        $name = htmlSpecialChars($myrow['name'], ENT_COMPAT);
+        \Xmf\Debug::dump($name);
         $user_url='';
         $user_email=$myrow['email'];
         $user_location='';
         $user_sig='';
     } else {
         $member_handler = xoops_gethandler('member');
+        /** @var \XoopsUser $thisUser */
         $thisUser = $member_handler->getUser($uid);
         if (!is_object($thisUser) || !$thisUser->isActive()) {
             redirect_header("index.php", 3, 'Error');
             exit();
         }
         $q_name = '';
-        $name = htmlSpecialChars($thisUser->getVar('name'));
+        $name = $thisUser->getVar('name', 's');
         if ($name=='') {
-            $name = htmlSpecialChars($thisUser->getVar('uname'));
+            $name = $thisUser->getVar('uname', 's');
         }
         $user_url=$thisUser->getVar('url');
         if ($thisUser->getVar('user_viewemail')) {
@@ -98,6 +100,7 @@ if ($result) {
     $sql.=" WHERE $whereclause AND surname!='$surname' AND (approved=1 OR uid=$myuid) ";
     $result = $xoopsDB->query($sql);
     $surname_list = array();
+    $surname_list_id = array();
     if ($result) {
         while ($myrow=$xoopsDB->fetchArray($result)) {
             $surname_list_id[]=$myrow['id'];
@@ -121,10 +124,9 @@ if ($edit_rights) {
 }
 
 $xoopsTpl->assign('pref_cols', 3);
-if (is_array($surname_list) && count($surname_list)) {
-    $xoopsTpl->assign('surnames', $surname_list);
-    $xoopsTpl->assign('surnames_ids', $surname_list_id);
-}
+$xoopsTpl->assign('surnames', $surname_list);
+$xoopsTpl->assign('surnames_ids', $surname_list_id);
+
 if (is_array($actions)) {
     $xoopsTpl->assign('actions', $actions);
 }

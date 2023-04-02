@@ -333,6 +333,7 @@ if ($op!='' && $userid!=0) {
     $sql="SELECT id, surname FROM ".$xoopsDB->prefix('surnames_register');
     $sql.=" WHERE uid=$userid ORDER BY surname";
 
+    $surname_list = array();
     $result = $xoopsDB->query($sql);
     if ($result) {
         while ($myrow=$xoopsDB->fetchArray($result)) {

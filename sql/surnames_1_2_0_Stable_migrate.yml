@@ -1,12 +1,12 @@
 surnames_register:
-    options: 'ENGINE=MyISAM DEFAULT CHARSET=utf8'
+    options: 'ENGINE=MyISAM DEFAULT CHARSET=utf8mb3'
     columns:
         -
             name: id
-            attributes: ' mediumint(8) unsigned  NOT NULL auto_increment'
+            attributes: ' mediumint unsigned  NOT NULL auto_increment'
         -
             name: uid
-            attributes: ' mediumint(8) unsigned  NOT NULL  DEFAULT ''0'' '
+            attributes: ' mediumint unsigned  NOT NULL  DEFAULT ''0'' '
         -
             name: name
             attributes: ' varchar(60)  NOT NULL  DEFAULT '''' '
@@ -21,13 +21,13 @@ surnames_register:
             attributes: ' varchar(120)  NOT NULL  DEFAULT '''' '
         -
             name: comment_count
-            attributes: ' smallint(5) unsigned  NOT NULL  DEFAULT ''0'' '
+            attributes: ' smallint unsigned  NOT NULL  DEFAULT ''0'' '
         -
             name: approved
-            attributes: ' tinyint(1) unsigned  NOT NULL  DEFAULT ''0'' '
+            attributes: ' tinyint unsigned  NOT NULL  DEFAULT ''0'' '
         -
             name: changed_ts
-            attributes: ' timestamp  NOT NULL  DEFAULT ''CURRENT_TIMESTAMP'' on update CURRENT_TIMESTAMP'
+            attributes: ' timestamp  NOT NULL  DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'
     keys:
         PRIMARY:
             columns: id

@@ -1,4 +1,4 @@
-<div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$smarty.const._MD_SURNAMES_LIST_ALL}></div>
+<div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &nbsp;&gt; <{$smarty.const._MD_SURNAMES_LIST_ALL}></div>
 <{if isset($pagenav)}>
 <div align="left"><{$pagenav}></div>
 <{/if}>

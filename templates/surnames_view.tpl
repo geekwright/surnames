@@ -1,4 +1,4 @@
-<div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &gt; <{$smarty.const._MD_SURNAMES_VIEW_SINGLE}></div>
+<div class="breadcrumb"><a href="index.php"><{$smarty.const._MD_SURNAMES_BC_ROOT}></a> &nbsp;&gt; <{$smarty.const._MD_SURNAMES_VIEW_SINGLE}></div>
 <br>
 <table>
 <tr><td width="20%"><{$smarty.const._MD_SURNAMES_SURNAME}></td><td><a href="list.php?surname=<{$qsurname}>"><{$surname}></a></td></tr>

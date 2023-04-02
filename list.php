@@ -19,9 +19,9 @@ function myGetUnameFromId($uid)
     }
     /** @var \XoopsUser $thisUser */
     $thisUser = $memberHandler->getUser($uid);
-    $name = htmlSpecialChars($thisUser->getVar('name'), ENT_QUOTES);
+    $name = $thisUser->getVar('name', 's');
     if ($name=='') {
-        $name = htmlSpecialChars($thisUser->getVar('uname', ENT_QUOTES));
+        $name = $thisUser->getVar('uname', 's');
     }
     return($name);
 }

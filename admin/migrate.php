@@ -69,7 +69,7 @@ switch ($op) {
         $message = 'Database migrated to current schema.';
         break;
     case 'schema':
-        xoops_confirm(['op' => 'confirmwrite'], 'migrate.php', 'Warning! This is intended for developers only. Confirm write schema file from current database.', 'Confirm');
+        xoops_confirm(array('op' => 'confirmwrite'), 'migrate.php', 'Warning! This is intended for developers only. Confirm write schema file from current database.', 'Confirm');
         break;
     case 'confirmwrite':
         if ($GLOBALS['xoopsSecurity']->check()) {

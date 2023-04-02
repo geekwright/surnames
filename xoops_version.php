@@ -3,12 +3,12 @@
 $modversion['dirname'] = basename(__DIR__);
 
 $modversion['name']                = _MI_SURNAMES_NAME;
-$modversion['version']             = '1.2.0';
+$modversion['version']             = '1.2.0-Stable';
 $modversion['description']         = _MI_SURNAMES_DESC;
 $modversion['author']              = 'geekwright';
 $modversion['credits']             = 'Richard Griffith';
-$modversion['min_php']             = '5.3.7';
-$modversion['min_xoops']           = '2.5.9';
+$modversion['min_php']             = '5.3.9';
+$modversion['min_xoops']           = '2.5.11';
 $modversion['system_menu']         = 1;
 $modversion['help']                = 'page=help';
 $modversion['license']             = 'GNU GPL v2 or higher';
@@ -17,7 +17,6 @@ $modversion['official']            = 0;
 $modversion['image']               = 'assets/images/icon.png';
 
 // About stuff
-$modversion['module_status']       = 'Final';
 $modversion['release_date']        = '09/20/2017';
 
 $modversion['developer_lead']      = 'geekwright';
@@ -134,7 +133,7 @@ $modversion['config'][4]['valuetype'] = 'int';
 $modversion['config'][4]['default'] = 0;
 
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
-$modversion['tables'][0] = 'surnames_register';
+$modversion['tables'] = array('surnames_register');
 
 if (is_object($GLOBALS['xoopsModule']) && $GLOBALS['xoopsModule']->getVar('dirname') == $modversion['dirname']) {
     $modHelper = Xmf\Module\Helper::getHelper($modversion['dirname']);
